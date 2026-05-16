@@ -6,8 +6,13 @@ models/
 gnubg_test/
 gnubg_games/
 logs/
+data/
 *.pt
 !best_models/**/*.pt
 c_engine/*.so
 c_engine/*.dll
+c_engine/ubgi_engine
+c_engine/play_models
+c_engine/test_nn
+c_engine/*.bin
 c_engine/.build.lock
