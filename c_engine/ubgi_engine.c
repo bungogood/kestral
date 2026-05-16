@@ -262,8 +262,10 @@ int main(int argc, char **argv) {
                 return 2;
             }
             if (nn_load(&ctx.model, argv[i + 1]) != 0) {
-                fprintf(stderr, "failed to load model: %s\n", argv[i + 1]);
-                return 2;
+                fprintf(stderr, "warning: failed to load model: %s (falling back to first legal move)\n", argv[i + 1]);
+                ctx.use_model = 0;
+                i++;
+                continue;
             }
             ctx.use_model = 1;
             i++;

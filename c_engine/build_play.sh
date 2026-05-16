@@ -7,15 +7,15 @@ set -e
 cd "$(dirname "$0")"
 
 echo "Building play_models..."
-gcc -O2 -o play_models play_models.c bg_engine.c nn_eval.c -lm -Wall
+gcc -O2 -I. -I../c_inference -o play_models ../c_inference/play_models.c bg_engine.c ../c_inference/nn_eval.c -lm -Wall
 echo "  -> play_models built"
 
 echo "Building test_nn..."
-gcc -O2 -o test_nn test_nn.c bg_engine.c nn_eval.c -lm -Wall
+gcc -O2 -I. -I../c_inference -o test_nn ../c_inference/test_nn.c bg_engine.c ../c_inference/nn_eval.c -lm -Wall
 echo "  -> test_nn built"
 
 echo "Building ubgi_engine..."
-gcc -O2 -o ubgi_engine ubgi_engine.c bg_engine.c nn_eval.c -lm -Wall
+gcc -O2 -I. -I../c_inference -o ubgi_engine ubgi_engine.c bg_engine.c ../c_inference/nn_eval.c -lm -Wall
 echo "  -> ubgi_engine built"
 
 echo "Done. Usage:"
